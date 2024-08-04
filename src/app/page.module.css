@@ -1,0 +1,530 @@
+.mainPage {
+  background-color: grey;
+}
+
+
+.authenticatingWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    background-color: #f5f5f5; 
+  }
+  
+  .authenticatingMessage {
+    font-size: 1.5rem;
+    color: #333; 
+    font-weight: bold;
+  }
+  
+  .spinner {
+    border: 16px solid #f3f3f3; 
+    border-top: 16px solid darkblue;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin-right: 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+
+.favoritesLink {
+    border: none;
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+
+.header{
+    padding:1rem;
+    display:flex;
+    justify-content: flex-end;
+align-items: center;
+gap: 30px
+
+}
+
+.search{
+    background-color: transparent;
+    border: 2px solid white;
+    padding:0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color:#fff;
+    font-family: inherit;
+}
+
+.search:focus{
+    outline:0;
+    background-color: var(--primary-color);
+}
+
+.search::placeholder{
+    color: white;
+}
+
+.main{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie {
+    width: 300px;
+    margin: 1rem;
+    border-radius: 3px;
+    box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+    position:relative;
+    overflow: hidden;
+}
+
+
+.movie img{
+    width:100%;
+}
+
+.movieInfo{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+.h3{
+    margin-top: 0;
+}
+
+.movieInfo span{
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.movieInfo span.green{
+    color:lightgreen;
+}
+
+.movieInfo span.orange{
+    color:orange;
+}
+
+.movieInfo span.red{
+    color:red;
+}
+
+.highlightButton,
+.logoutButton,
+.backButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    height: 40px;
+    width:150px;
+    margin-left: 20px;
+}
+
+
+
+.overview{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: #fff;
+    padding: 1rem;
+    max-height: 100%;
+    transform:translateY(101%);
+    transition:transform 0.3s ease-in;
+}
+
+.movie:hover .overview{
+    transform:translateY(0)
+}
+
+.tags{
+    width:80%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+   
+}
+
+.tag{
+    color:white;
+    padding:10px 20px;
+    background-color: darkgrey;
+    border-radius: 50px;
+    margin:5px;
+    display:inline-block;
+    cursor: pointer;
+}
+
+
+.noResults{
+    color:white;
+}
+
+.pagination{
+    display:flex;
+    margin:10px 30px;
+    align-items: center;
+    justify-content: center;
+    color:black;
+}
+
+.page{
+    padding:20px;
+    cursor:pointer;
+}
+
+.page.disabled{
+    cursor:not-allowed;
+    color:grey;
+}
+
+.current{
+    padding: 10px 20px;
+    border-radius: 50%;
+    border: 5px solid black;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.knowMore{
+    background-color: black;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    border:0;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-top: 5px;
+}
+
+.overlay {
+
+    height: 100%;
+    width: 0;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.9); 
+    overflow-x: hidden; 
+    transition: 0.5s; 
+}
+
+  .overlayContent {
+    position: relative;
+    top: 10%; 
+    width: 100%;
+    text-align: center; 
+    margin-top: 30px; 
+  }
+
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; 
+    transition: 0.3s; 
+  }
+
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+
+
+  .embedHide{
+      display: none;
+  }
+
+  .embedShow{
+      display: inline-block;
+  }
+
+  .arrow{
+      position: absolute;
+      font-size: 40px;
+  }
+
+  .arrow.leftArrow{
+      top:50%;
+      left:5%;
+      transform: translateY(-50%);
+  }
+
+  
+  .arrow.rightArrow{
+    top:50%;
+    transform: translateY(-50%);
+    right:5%;
+}
+
+
+.dots{
+    margin-top: 30px;
+}
+
+.dots .dot {
+    padding: 5px 15px;
+    border-radius: 50%;
+    border: 5px solid var(--secondary-color);
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px;
+}
+
+.dots .dot.active{
+    border-color: orange;
+}
+
+.pageWrapper {
+    background-image: url('https://4kwallpapers.com/images/wallpapers/solar-system-2560x1440-12831.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container{
+  height: 100%;
+  align-content: center;
+  }
+  
+  
+  .card{
+  height: 370px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+  padding: 50px;
+  max-width: 700px;
+  border-radius: 10px;
+  overflow: hidden;
+  }
+  
+  .socialIcon span{
+  font-size: 60px;
+  margin-left: 10px;
+  color: #FFC312;
+  }
+  
+  .socialIcon span:hover{
+  color: white;
+  cursor: pointer;
+  }
+  
+  .cardHeader h3{
+  color: white;
+  }
+  
+  .socialIcon{
+  position: absolute;
+  right: 20px;
+  top: -45px;
+  display: flex;
+  justify-content: end;
+  }
+  
+  .input{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  }
+  
+  
+  .remember
+  {
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .loginBtn{
+  color: black;
+  background-color: #FFC312;
+  width: 100px;
+  float:right;
+  border: none;
+  border-radius: 8px;
+  height: 40px;
+  }
+  
+  
+  .loginBtn:hover{
+  color: black;
+  background-color: white;
+  }
+  
+  .links{
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  }
+  
+  .links a{
+  margin-left: 4px;
+  }
+  
+
+
+.movie {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.posterContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.poster {
+    width: 100%;
+}
+
+.favoriteButton {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transition: fill 0.3s ease;
+}
+
+.favoriteButton svg {
+    fill: white; 
+    transition: fill 0.3s ease;
+}
+
+.favoriteButton.active svg {
+    fill: red; 
+}
+
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.genresContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 10px 0; 
+}
+
+.tag {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center; 
+}
+
+.highlight {
+    color: white;
+}
+
+
+.burgerMenu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.burgerMenu div {
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.burgerMenu.open .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burgerMenu.open .bar2 {
+    opacity: 0;
+}
+
+.burgerMenu.open .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.genresDropdown {
+    display: none;
+    position: absolute;
+    top: 60px; 
+    right: 10px; 
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 200px; 
+    z-index: 1000;
+}
+
+.genresDropdown.active {
+    display: block;
+}
+
+@media (max-width: 968px) {
+    .genresContainer {
+        display: none;
+    }
+    
+    .burgerMenu {
+        display: flex;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+
+
+
+
